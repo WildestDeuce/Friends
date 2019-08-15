@@ -1,0 +1,11 @@
+#upper-heading, #lower-heading {
+text-align: center
+}
+
+#submit-button{
+    margin-top: 25px;
+}
+
+.question-header, .survey-question, .radio{
+    text-align: center
+}

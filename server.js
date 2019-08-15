@@ -9,6 +9,7 @@ app.use(express.json());
 
 require("./routing/apiRoutes")(app);
 require("./routing/htmlRoutes")(app);
+var friendsArray = require("./app/data/friends"); 
 
 app.listen(PORT, function () {
   console.log("App listening on PORT: " + PORT);

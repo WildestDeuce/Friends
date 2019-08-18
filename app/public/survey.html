@@ -36,7 +36,8 @@
                 <h4>Link to Photo Image (required)</h4>
                 <div class="field">
                     <div class="control">
-                        <input class="input is-success photo-field" type="text" placeholder="Link to Your Photo Goes Here">
+                        <input class="input is-success photo-field" type="text"
+                            placeholder="Link to Your Photo Goes Here">
                     </div>
                 </div>
                 <hr>
@@ -289,8 +290,14 @@
     </section>
 
     <script>
-
-
+        // function runFriendsSurvey() {
+        //     $.ajax({ url: "api/friends", method: "GET" })
+        //         .then(function (friendsData) {
+        //             for (var i = 0; i > friendsData.length; i++) {
+        //                 var friendsList = $("#friends-list")
+        //             }
+        //         })
+        // }
         $(".button").on("click", function () {
             let friendsHolder = {
                 name: $(".name-field").val(),
@@ -301,12 +308,17 @@
             $('input:radio:checked').each(function () {
                 console.log($(this).val())
                 friendsHolder.scores.push($(this).val());
-            
+
             });
             console.log(friendsHolder);
+            $.post("/api/friends", friendsHolder, function (data) {
+                //data: Received from server
+              
+            });
         })
 
-// make api calls. push friendsHolder object to that route. POST method
+        // make api calls. push friendsHolder object to that route. POST method
+
 
     </script>
 

@@ -285,19 +285,23 @@
             </div>
         </div>
 
-
+        <div class="container" id="app">
+            <div class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <!-- Any other Bulma elements you want -->
+                    <div class="modal-name"></div>
+                    <img class="modal-image" />
+                
+                </div>
+                <button class="modal-close"></button>
+            </div>                
+        </div>
 
     </section>
 
     <script>
-        // function runFriendsSurvey() {
-        //     $.ajax({ url: "api/friends", method: "GET" })
-        //         .then(function (friendsData) {
-        //             for (var i = 0; i > friendsData.length; i++) {
-        //                 var friendsList = $("#friends-list")
-        //             }
-        //         })
-        // }
+
         $(".button").on("click", function () {
             let friendsHolder = {
                 name: $(".name-field").val(),
@@ -313,11 +317,18 @@
             console.log(friendsHolder);
             $.post("/api/friends", friendsHolder, function (data) {
                 //data: Received from server
-              console.log(data);
+                console.log(data);
+                
+                $(".modal").addClass("is-active");
+                $(".modal-name").text(data.name);
+                $(".modal-image").attr("src",data.photo);
             });
         })
 
-        // make api calls. push friendsHolder object to that route. POST method
+
+        $(".modal-close").click(function () {
+            $(".modal").removeClass("is-active");
+        });
 
 
     </script>

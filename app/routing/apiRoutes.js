@@ -23,11 +23,11 @@ module.exports = function (app) {
 
             console.log(`Person: ${friendsHolder[i].name}\nAbsoluteValue: ${friendsHolder[i].absVal}\n`)
         }
-        
+
         var minimum = Math.min(...absoluteValueArray)
 
         for (k = 0; k < friendsHolder.length; k++) {
-            if (parseInt(minimum) === friendsHolder[k].absVal){
+            if (parseInt(minimum) === friendsHolder[k].absVal) {
                 match = friendsHolder[k];
             }
         }
@@ -36,5 +36,4 @@ module.exports = function (app) {
         res.json(match);
     })
 
-    friendsHolder.push(req.body)
 };
